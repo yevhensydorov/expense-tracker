@@ -1,4 +1,5 @@
 import React from 'react';
+import AddExpense from './AddExpense';
 
 class App extends React.Component {
   constructor(){
@@ -8,7 +9,9 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        Content will go here
+        <h1>ExpenseTracker</h1>
+        <AddExpense />
+        {/*<ExpensessTable />*/}
       </div>
     );
   }
