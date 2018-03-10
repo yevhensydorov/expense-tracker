@@ -14,16 +14,18 @@ class AddExpense extends React.Component {
 	}
 
 	handleChange(event) {
+		const value = event.target.value;
+		const name = event.target.name; // find a name of the input
 		this.setState({
-			description: event.target.description,
-			date: event.target.date,
-			amount: event.target.amount
+			[name]: value // add the input name to the state obj
 		});
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
-		console.log(this.state.description);
+		// console.log(this.state);
+		const expense = this.state;
+		this.props.receiver(expense);
 	}
 
 	render() {
@@ -36,8 +38,6 @@ class AddExpense extends React.Component {
 					onSubmit={this.handleSubmit}
 				>
 					<div className='form-items'>
-
-
 
 						<label 
 							htmlFor="descr-input" 
@@ -52,7 +52,7 @@ class AddExpense extends React.Component {
 							type='text'
 							id='descr-input'
 							className='descr-input'
-							name='descr-input'
+							name='description'
 						 />
 
 
@@ -67,10 +67,10 @@ class AddExpense extends React.Component {
 						<input 
 							onChange={this.handleChange}
 							value={this.state.date}
-							type='text'
+							type='date'
 							id='date-input'
 							className='date-input'
-							name='date-input'
+							name='date'
 						 />
 
 
@@ -88,9 +88,8 @@ class AddExpense extends React.Component {
 							type='text'
 							id='amount-input'
 							className='amount-input'
-							name='amount-input'
+							name='amount'
 						 />
-
 
 					</div>
 
