@@ -30,13 +30,8 @@ class AddExpense extends React.Component {
 
 	render() {
 		return (
-			<section 
-				className='add-block'
-			>
-				<form 
-					className='search-form'
-					onSubmit={this.handleSubmit}
-				>
+			<section className='add-block'>
+				<form className='search-form' onSubmit={this.handleSubmit}>
 					<div className='form-items'>
 
 						<label 

@@ -1,26 +1,29 @@
 import React from 'react';
 import AddExpense from './AddExpense';
 import ExpensessTable from './ExpensessTable';
+import ExpenseRow from './ExpenseRow';
 
 class App extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
-      data: ''
+      data: []
     };
 
     this.getRow = this.getRow.bind(this);
   }
 
   getRow(expense) {
-    console.log(expense);
+    // console.log("come from get row", expense);
     // console.log(typeof(expense));
+    const newRow = this.state.data;
+    newRow.unshift(expense);
     this.setState({
-      data: expense
+      data: newRow
     });
 
-    console.log(this.state.data); // SET.STATE IS ASYNC
+    // console.log("come from state", this.state); // SET.STATE IS ASYNC
 
   }
 
@@ -29,7 +32,12 @@ class App extends React.Component {
       <div>
         <h1>ExpenseTracker</h1>
         <AddExpense receiver={this.getRow} />
-        <ExpensessTable />
+        <section className="expesess-table">
+          <table>
+            <ExpensessTable />
+            <ExpenseRow expense={this.state.data} /> 
+          </table>
+        </section>
       </div>
     );
   }
