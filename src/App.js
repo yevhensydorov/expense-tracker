@@ -1,10 +1,10 @@
-import React from 'react';
-import AddExpense from './AddExpense';
-import ExpensessTable from './ExpensessTable';
-import ExpenseRow from './ExpenseRow';
+import React from "react";
+import AddExpense from "./AddExpense";
+import ExpensessTable from "./ExpensessTable";
+import ExpenseRow from "./ExpenseRow";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -14,20 +14,27 @@ class App extends React.Component {
     this.getRow = this.getRow.bind(this);
   }
 
-  getRow(expense) {
-    // console.log("come from get row", expense);
-    // console.log(typeof(expense));
-    const newRow = this.state.data;
-    newRow.unshift(expense);
-    this.setState({
-      data: newRow
-    });
-
-    // console.log("come from state", this.state); // SET.STATE IS ASYNC
-
+  componentDidMount() {
+    const cashedExpenses = localStorage.getItem("myExpenses");
+    if (cashedExpenses) {
+      this.setState({
+        data: JSON.parse(cashedExpenses)
+      });
+    }
   }
 
-  render(){
+  getRow(expense) {
+    const list = [...this.state.data];
+    list.push(expense);
+
+    this.setState({
+      data: list
+    });
+
+    localStorage.setItem("myExpenses", JSON.stringify(list));
+  }
+
+  render() {
     return (
       <div>
         <h1>ExpenseTracker</h1>
@@ -35,7 +42,7 @@ class App extends React.Component {
         <section className="expesess-table">
           <table>
             <ExpensessTable />
-            <ExpenseRow expense={this.state.data} /> 
+            <ExpenseRow expense={this.state.data} />
           </table>
         </section>
       </div>
