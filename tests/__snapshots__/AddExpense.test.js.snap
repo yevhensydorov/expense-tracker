@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddExpense matches the snapshot 1`] = `
+<section
+  className="add-block"
+>
+  <form
+    className="search-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-items"
+    >
+      <label
+        className="desrc-label"
+        htmlFor="descr-input"
+      >
+        Description
+      </label>
+      <input
+        className="descr-input"
+        id="descr-input"
+        name="description"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <label
+        className="item-label"
+        htmlFor="date-input"
+      >
+        Date
+      </label>
+      <input
+        className="date-input"
+        id="date-input"
+        name="date"
+        onChange={[Function]}
+        type="date"
+        value=""
+      />
+      <label
+        className="item-label"
+        htmlFor="amount-input"
+      >
+        Amount
+      </label>
+      <input
+        className="amount-input"
+        id="amount-input"
+        name="amount"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="submit-btn"
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+</section>
+`;

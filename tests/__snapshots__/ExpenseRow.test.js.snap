@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseRow matches the snapshot 1`] = `
+<tbody>
+  <tr>
+    <td>
+      cheese
+    </td>
+    <td>
+      2017-11-30
+    </td>
+    <td>
+      3243
+    </td>
+  </tr>
+  <tr>
+    <td>
+      wine
+    </td>
+    <td>
+      2018-11-21
+    </td>
+    <td>
+      32
+    </td>
+  </tr>
+  <tr>
+    <td>
+      strawberry
+    </td>
+    <td>
+      2018-12-05
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+</tbody>
+`;
