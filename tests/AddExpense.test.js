@@ -14,41 +14,13 @@ describe("AddExpense", () => {
   it("captures change -DESCRIPTION- input and passes it event handler", () => {
     const event = {
       target: {
+        name: "description",
         value: "raspberry"
       }
     };
     const handleChange = jest.fn();
-    const wrapper = shallow(<AddExpense handleChange={this.handleChange} />);
-    // console.log(wrapper.find("input.descr-input").html());
+    const wrapper = shallow(<AddExpense handleChange={handleChange} />);
     wrapper.find("input.descr-input").simulate("change", event);
-    expect(handleChange.mock.calls).toEqual([["raspberry"]]);
+    expect(wrapper.state().description).toEqual("raspberry");
   });
 });
-
-// describe("AddExpense", () => {
-//   it("captures change -DATE- input and passes it event handler", () => {
-//     const event = {
-//       target: {
-//         value: "2018-11-21"
-//       }
-//     };
-//     const handleChange = jest.fn();
-//     const wrapper = shallow(<AddExpense handleChange={handleChange} />);
-//     wrapper.find("input.date-input").simulate("change", event);
-//     expect(handleChange.mock.calls).toEqual([["2018-11-21"]]);
-//   });
-// });
-
-// describe("AddExpense", () => {
-//   it("captures change -DATE- input and passes it event handler", () => {
-//     const event = {
-//       target: {
-//         value: "5"
-//       }
-//     };
-//     const handleChange = jest.fn();
-//     const wrapper = shallow(<AddExpense handleChange={handleChange} />);
-//     wrapper.find("input.amount-input").simulate("change", event);
-//     expect(handleChange.mock.calls).toEqual([["5"]]);
-//   });
-// });
